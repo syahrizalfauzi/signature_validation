@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Validation Frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #clientList {
+            margin-top: 15px;
+        }
+
+        .client-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #eee;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .client-item button {
+            background-color: #dc3545;
+            padding: 5px 10px;
+        }
+
+        .client-item button:hover {
+            background-color: #c82333;
+        }
+
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Signature Validation</h1>
+
+    <section id="clientsEditor">
+        <h2>Clients Editor</h2>
+        <div>
+            <label for="clientNameInput">Client Name:</label>
+            <input type="text" id="clientNameInput" placeholder="Enter client name">
+            <label for="clientKeyInput">Client Key:</label>
+            <input type="text" id="clientKeyInput" placeholder="Enter client key">
+            <button id="addClientBtn">Add Client</button>
+        </div>
+        <h3>Current Clients:</h3>
+        <div id="clientList"></div>
+    </section>
+
+    <section id="signatureGenerator">
+        <h2>Signature Generator</h2>
+        <div>
+            <label for="genRequestBody">Request Body (JSON):</label>
+            <textarea id="genRequestBody" rows="6" placeholder="{}"></textarea>
+            <label for="genClient">Client:</label>
+            <input type="text" id="genClient" placeholder="e.g., Client1">
+            <button id="generateBtn">Generate Signature</button>
+        </div>
+        <div class="result">
+            <p>Nonce: <span id="generatedNonce"></span></p>
+            <p>Signature: <span id="generatedSignature"></span></p>
+        </div>
+    </section>
+
+    <section id="signatureValidator">
+        <h2>Signature Validator</h2>
+        <div>
+            <label for="valRequestBody">Request Body (JSON):</label>
+            <textarea id="valRequestBody" rows="6" placeholder="{}"></textarea>
+            <label for="valNonce">Nonce:</label>
+            <input type="text" id="valNonce" placeholder="Enter Nonce">
+            <label for="valSignature">Signature:</label>
+            <input type="text" id="valSignature" placeholder="Enter Signature">
+            <label for="valClient">Client:</label>
+            <input type="text" id="valClient" placeholder="e.g., Client1">
+            <button id="validateBtn">Validate Signature</button>
+        </div>
+        <div class="result">
+            <p>Validation Result: <span id="validationResult"></span></p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
