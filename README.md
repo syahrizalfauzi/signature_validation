@@ -34,7 +34,7 @@ To run the Go backend application:
 
 To run the HTML/JavaScript frontend application:
 
-1.  Open the `frontend/index.html` file in your web browser.
+1.  Open the `docs/index.html` file in your web browser.
 2.  All functionalities (Client Editor, Signature Generator, Signature Validator) are available directly in the browser.
 
 ## Technologies Used
